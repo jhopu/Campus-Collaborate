@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034924607954",
+    "project_id": "campus-collaborate-47541",
+    "storage_bucket": "campus-collaborate-47541.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034924607954:android:ab887c2c4b1f3502bb200b",
+        "android_client_info": {
+          "package_name": "com.example.campus_collaborate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoNZScN6KN666Wucwq5i9pmgnJ31HeGRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
