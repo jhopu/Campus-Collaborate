@@ -1,47 +1,54 @@
+
 class Project {
   final String projectName;
   final String description;
-  final List<String> skills;
-  final List<String>? url;
+  final List<dynamic> skills;
+  final List<String>? urls;
   final String duration;
   final bool isActive;
-  final String projectId;
-  final List<String> admin;
-  final List<String>? starredBy;
+  final String id;
+  final List<String>? admin;
+  final List<String>? starBy;
+  final String owner;
 
   Project(
       {required this.projectName,
       required this.description,
       required this.skills,
-      required this.url,
+      required this.urls,
       required this.duration,
       required this.isActive,
-      required this.projectId,
+      required this.id,
       required this.admin,
-      required this.starredBy});
-
+      required this.starBy,
+      required this.owner
+      });
   factory Project.fromJson(Map<String, dynamic> json) => Project(
-      projectName: json['projectName'],
-      description: json['description'],
-      skills: json['skills'].cast<String>(),
-      url: json['url'],
-      duration: json['duration'],
-      isActive: json['isActive'],
-      projectId: json['projectId'],
-      admin: json['admin'].cast<String>(),
-      starredBy: json['starredBy']);
+    projectName: json['projectName'] as String,
+    description: json['description'] as String,
+    skills:
+    json['skills'] as List<dynamic>,
+    urls: (json['urls'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    duration: json['duration'] as String,
+    isActive: json['isActive'] as bool,
+    id: json['_id'] as String,
+    admin:
+    (json['admin'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    starBy:
+    (json['starBy'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    owner: json['owner'] as String,
+  );
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['projectName'] = projectName;
-    data['description'] = description;
-    data['skills'] = skills;
-    data['url'] = url;
-    data['duration'] = duration;
-    data['isActive'] = isActive;
-    data['projectId'] = projectId;
-    data['admin'] = admin;
-    data['starredBy'] = starredBy;
-    return data;
-  }
+  Map<String, dynamic> toJson(Project instance) => <String, dynamic>{
+    'projectName': instance.projectName,
+    'description': instance.description,
+    'skills': instance.skills,
+    'urls': instance.urls,
+    'duration': instance.duration,
+    'isActive': instance.isActive,
+    '_id': instance.id,
+    'admin': instance.admin,
+    'starBy': instance.starBy,
+    'owner': instance.owner,
+  };
 }
