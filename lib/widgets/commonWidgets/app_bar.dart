@@ -6,36 +6,30 @@ PreferredSize customAppBar(String title, Function onBackTap) {
     preferredSize: const Size.fromHeight(50),
     child: AppBar(
       backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
-      title: Text(
-        title,
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20),
-      ),
-      centerTitle: false,
-      leading: GestureDetector(
-        child: SizedBox(
-          height: 21.05,
-          width: 12,
-          child: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Themes.getColors(ColorsValues.ORANGE_COLOR),
-            size: 27,
-          ),
-        ),
-        onTap: () {
-          onBackTap();
-        },
-      ),
-      actions: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: Row(
           children: [
             GestureDetector(
-              child: Icon(Icons.more_vert, color: Themes.getColors(ColorsValues.ORANGE_COLOR), size: 30,)
+              child: Image.asset('assets/back_arrow.png',),
+              onTap: () {
+                onBackTap();
+              },
+            ),
+            const SizedBox(width: 10,),
+            Text(
+              title,
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 20),
             ),
           ],
+        ),
+      ),
+      actions: [
+        GestureDetector(
+          child: Icon(Icons.more_vert, color: Themes.getColors(ColorsValues.ORANGE_COLOR), size: 30,)
         )
       ],
-      leadingWidth: 20,
+      leadingWidth: double.infinity,
       elevation: 0,
     ),
   );

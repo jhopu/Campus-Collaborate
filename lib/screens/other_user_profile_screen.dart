@@ -25,7 +25,7 @@ class _OtherUserProfileScreenState extends State<OtherUserProfileScreen> {
       child: Scaffold(
         extendBody: true,
         appBar: customAppBar('Profile', () {}),
-        bottomNavigationBar: BottomNavBar(),
+        bottomNavigationBar: const BottomNavBar(),
         body: SingleChildScrollView(
           child: Padding(
             padding:

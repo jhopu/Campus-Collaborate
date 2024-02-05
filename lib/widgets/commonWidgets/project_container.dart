@@ -1,4 +1,5 @@
 import 'package:campus_collaborate/models/project.dart';
+import 'package:campus_collaborate/widgets/commonWidgets/contributors_container.dart';
 import 'package:campus_collaborate/widgets/commonWidgets/skills_container.dart';
 import 'package:campus_collaborate/widgets/commonWidgets/user_circular_avtar_list.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class ProjectContainerWithoutImage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(project.duration, style: const TextStyle(fontSize: 10, color: Colors.white, fontWeight: FontWeight.w400),),
-              project.admin==null?SkillContainer(skill: project.owner, fontSize: 10,):UserCircularAvatars(imageLinks: project.admin!)
+              project.admin==null?ContributorContainer(contributor: project.owner, fontSize: 10,):UserCircularAvatars(imageLinks: project.admin!)
             ],
           ),
           const SizedBox(height: 8,),

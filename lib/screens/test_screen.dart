@@ -1,3 +1,4 @@
+import 'package:campus_collaborate/widgets/commonWidgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
 class TestScreen extends StatelessWidget {
@@ -5,6 +6,8 @@ class TestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return SafeArea(child: Scaffold(
+      appBar: customAppBar('Hello', (){}),
+    ));
   }
 }

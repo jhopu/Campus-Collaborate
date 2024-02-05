@@ -17,42 +17,42 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+    PersistentTabController controller = PersistentTabController(initialIndex: 0);
     return Consumer<NavBarService>(
       builder: (context, navBarService, child){
         return PersistentTabView(
           context,
-          backgroundColor: Themes.getColors(ColorsValues.DARK_GREY_COLOR),
+          backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
           decoration: NavBarDecoration(
               borderRadius: BorderRadius.circular(15.0)
           ),
           navBarHeight: 65,
           navBarStyle: NavBarStyle.style7,
           items: [
-            PersistentBottomNavBarItem(icon: const Icon(Icons.home),
-                activeColorPrimary: Themes.getColors(ColorsValues.ORANGE_COLOR),
+            PersistentBottomNavBarItem(icon: Image.asset('assets/home.png', width: 32,),
+                activeColorPrimary: Colors.black,
               activeColorSecondary: Colors.black,
               inactiveColorPrimary: Colors.black
             ),
-            PersistentBottomNavBarItem(icon: const Icon(Icons.post_add),
-                activeColorPrimary: Themes.getColors(ColorsValues.ORANGE_COLOR),
+            PersistentBottomNavBarItem(icon: Image.asset('assets/course_review.png', width: 32),
+                activeColorPrimary: Colors.black,
                 activeColorSecondary: Colors.black,
                 inactiveColorPrimary: Colors.black
             ),
-            PersistentBottomNavBarItem(icon: const Icon(Icons.handshake),
-                activeColorPrimary: Themes.getColors(ColorsValues.ORANGE_COLOR),
+            PersistentBottomNavBarItem(icon: Image.asset('assets/hand_shake.png', width: 32),
+                activeColorPrimary: Colors.black,
                 activeColorSecondary: Colors.black,
                 inactiveColorPrimary: Colors.black
             ),
-            PersistentBottomNavBarItem(icon: const Icon(Icons.chat),
-                activeColorPrimary: Themes.getColors(ColorsValues.ORANGE_COLOR),
+            PersistentBottomNavBarItem(icon: Image.asset('assets/chat.png', width: 32),
+                activeColorPrimary: Colors.black,
                 activeColorSecondary: Colors.black,
                 inactiveColorPrimary: Colors.black
             )
           ],
-          controller: _controller,
-          screens: [
-              TestScreen(),
+          controller: controller,
+          screens: const[
+            TestScreen(),
             TestScreen(),
             TestScreen(),
             TestScreen()
