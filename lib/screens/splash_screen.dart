@@ -14,7 +14,8 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ProjectScreen(project: Project.fromJson(sampleProject),)
-    );
+        child: ProjectScreen(
+      project: Project.fromJson(sampleProject),
+    ));
   }
 }

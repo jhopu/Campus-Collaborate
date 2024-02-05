@@ -10,18 +10,14 @@ class UserCircularAvatars extends StatelessWidget {
       height: 30,
       width: 70,
       child: Stack(
-          children: List.generate(
-              imageLinks.length, (index) {
-            return Positioned(
-                left: index * 15,
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(imageLinks[index]),
-                  radius: 15,
-                )
-            );
-          }
-          )
-      ),
+          children: List.generate(imageLinks.length, (index) {
+        return Positioned(
+            left: index * 15,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(imageLinks[index]),
+              radius: 15,
+            ));
+      })),
     );
   }
 }

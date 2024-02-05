@@ -6,8 +6,9 @@ class TestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: customAppBar('Hello', (){}),
+    return SafeArea(
+        child: Scaffold(
+      appBar: customAppBar('Hello', () {}),
     ));
   }
 }

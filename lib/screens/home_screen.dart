@@ -10,19 +10,32 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _searchTextController= TextEditingController();
-    return SafeArea(child: Scaffold(
+    final TextEditingController _searchTextController = TextEditingController();
+    return SafeArea(
+        child: Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
           backgroundColor: Themes.getColors(ColorsValues.DARK_GREY_COLOR),
-          title:  Padding(
+          title: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text('Campus',style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),),
-                Text('Collab',style: TextStyle(color: Themes.getColors(ColorsValues.ORANGE_COLOR), fontSize: 20, fontWeight: FontWeight.w700),),
+                const Text(
+                  'Campus',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  'Collab',
+                  style: TextStyle(
+                      color: Themes.getColors(ColorsValues.ORANGE_COLOR),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
               ],
             ),
           ),
@@ -33,7 +46,11 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    child: Icon(Icons.supervised_user_circle, size: 55, color: Themes.getColors(ColorsValues.ORANGE_COLOR),),
+                    child: Icon(
+                      Icons.supervised_user_circle,
+                      size: 55,
+                      color: Themes.getColors(ColorsValues.ORANGE_COLOR),
+                    ),
                   )
                 ],
               ),
@@ -42,24 +59,44 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+        padding:
+            const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 10,),
-            const Text('My Feed', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),),
-            const SizedBox(height: 20,),
-            CommonTextField(textEditingController: _searchTextController, hintText: "Search Project", suffix: Image.asset('assets/funnel.png'),),
-            const SizedBox(height: 20,),
-            userInfo.projects==null||userInfo.projects!.isEmpty?const Center(
-              child: Text('No Projects to Show!'),
-            ):Expanded(
-              child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: userInfo.projects!.length,
-                  itemBuilder: (context, index)=>ProjectContainer(project: userInfo.projects![index])),
-            )
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              'My Feed',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CommonTextField(
+              textEditingController: _searchTextController,
+              hintText: "Search Project",
+              suffix: Image.asset('assets/funnel.png'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            userInfo.projects == null || userInfo.projects!.isEmpty
+                ? const Center(
+                    child: Text('No Projects to Show!'),
+                  )
+                : Expanded(
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: userInfo.projects!.length,
+                        itemBuilder: (context, index) => ProjectContainer(
+                            project: userInfo.projects![index])),
+                  )
           ],
         ),
       ),
