@@ -1,10 +1,12 @@
 import 'package:campus_collaborate/constants/themes.dart';
+import 'package:campus_collaborate/models/admin.dart';
 import 'package:flutter/material.dart';
 
 class ContributorContainer extends StatelessWidget {
-  final String contributor;
+  final Admin contributor;
   final double? fontSize;
-  const ContributorContainer({super.key, required this.contributor, this.fontSize});
+  const ContributorContainer(
+      {super.key, required this.contributor, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,21 @@ class ContributorContainer extends StatelessWidget {
           CircleAvatar(
             backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
             radius: 12,
-            child: Image.network(contributor, height: 20, width: 20,),
+            child: contributor.url == null
+                ? Image.asset('')
+                : Image.network(
+                    contributor.url!,
+                    height: 20,
+                    width: 20,
+                  ),
           ),
           Expanded(
             child: Text(
-              contributor,
+              contributor.name,
               style: TextStyle(
-                  fontSize: fontSize ?? 13, color: Colors.black, fontWeight: FontWeight.w400),
+                  fontSize: fontSize ?? 13,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400),
               overflow: TextOverflow.ellipsis,
             ),
           ),
@@ -36,7 +46,7 @@ class ContributorContainer extends StatelessWidget {
 }
 
 class ContributorListView extends StatelessWidget {
-  final List<String> contributorsList;
+  final List<Admin> contributorsList;
   const ContributorListView({super.key, required this.contributorsList});
 
   @override
@@ -46,7 +56,9 @@ class ContributorListView extends StatelessWidget {
           spacing: 8,
           runSpacing: 8,
           children: contributorsList.map((contributor) {
-            return ContributorContainer(contributor: contributor,);
+            return ContributorContainer(
+              contributor: contributor,
+            );
           }).toList());
     }
     return Wrap(
@@ -57,13 +69,15 @@ class ContributorListView extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: contributorsList.take(4).map((contributor) {
-              return ContributorContainer(contributor: contributor,);
+              return ContributorContainer(
+                contributor: contributor,
+              );
             }).toList()),
         ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
                 padding:
-                const EdgeInsets.symmetric(vertical: 3, horizontal: 5)),
+                    const EdgeInsets.symmetric(vertical: 3, horizontal: 5)),
             child: Text(
               '+${contributorsList.length - 4} More',
               style: const TextStyle(

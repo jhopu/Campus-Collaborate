@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
             child: Column(
               children: [
                 Row(
@@ -113,33 +113,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                CommonGesturizedButton(onPressed: (){},
-                    buttonText: const Text('My Projects',
+                CommonGesturizedButton(
+                    onPressed: () {},
+                    buttonText: const Text(
+                      'My Projects',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),)),
+                          color: Colors.white),
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
-                CommonGesturizedButton(onPressed: (){},
-                    buttonText: const Text('Saved Projects',
+                CommonGesturizedButton(
+                    onPressed: () {},
+                    buttonText: const Text(
+                      'Saved Projects',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),)),
+                          color: Colors.white),
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
-                CommonGesturizedButton(onPressed: (){},
-                    buttonText: const Text('My Reviews',
+                CommonGesturizedButton(
+                    onPressed: () {},
+                    buttonText: const Text(
+                      'My Reviews',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),)),
+                          color: Colors.white),
+                    )),
               ],
             ),
           ),

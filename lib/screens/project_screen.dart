@@ -14,20 +14,31 @@ class ProjectScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      floatingActionButton: CustomFloatingActionButton(onPressed: (){}, icon: Image.asset('assets/star.png'),),
-      appBar: customAppBar(project.projectName, (){}),
-      bottomNavigationBar: const BottomNavBar(),
+    return SafeArea(
+        child: Scaffold(
+      floatingActionButton: CustomFloatingActionButton(
+        onPressed: () {},
+        icon: Image.asset('assets/star.png'),
+      ),
+      appBar: customAppBar(project.projectName, () {}),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 20,),
-              project.urls!=null||project.urls!.isNotEmpty?CustomImageCollage(imagesLink: project.urls!):const SizedBox(height: 0,),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 20,
+              ),
+              project.urls != null || project.urls!.isNotEmpty
+                  ? CustomImageCollage(imagesLink: project.urls!)
+                  : const SizedBox(
+                      height: 0,
+                    ),
+              const SizedBox(
+                height: 15,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -35,8 +46,16 @@ class ProjectScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(project.projectName, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),),
-                      Text('Time Taken: ${project.duration}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300),)
+                      Text(
+                        project.projectName,
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w700),
+                      ),
+                      Text(
+                        'Time Taken: ${project.duration}',
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w300),
+                      )
                     ],
                   ),
                   GestureDetector(
@@ -45,26 +64,47 @@ class ProjectScreen extends StatelessWidget {
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
-                          color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
-                          borderRadius: const BorderRadius.all(Radius.circular(20))
+                          color:
+                              Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20))),
+                      child: Image.asset(
+                        'assets/share_button.png',
+                        height: 25,
+                        width: 25,
                       ),
-                      child: Image.asset('assets/share_button.png', height: 25, width: 25,),
                     ),
                   )
                 ],
               ),
-              const SizedBox(height: 15,),
-              SkillsListView(skillsList: project.skills),
-              project.admin==null||project.admin!.isEmpty?const SizedBox(height: 0,):Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Contributors', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),),
-                  ContributorListView(contributorsList: project.admin!)
-                ],
+              const SizedBox(
+                height: 15,
               ),
-              const SizedBox(height: 10,),
-              Text(project.description, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),)
+              SkillsListView(skillsList: project.skills),
+              project.admin == null || project.admin!.isEmpty
+                  ? const SizedBox(
+                      height: 0,
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Contributors',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+                        ContributorListView(contributorsList: project.admin!)
+                      ],
+                    ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                project.description,
+                style:
+                    const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+              )
             ],
           ),
         ),

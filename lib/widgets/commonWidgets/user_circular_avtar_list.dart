@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../models/admin.dart';
+
 class UserCircularAvatars extends StatelessWidget {
-  final List<String> imageLinks;
-  const UserCircularAvatars({super.key, required this.imageLinks});
+  final List<Admin> admins;
+  const UserCircularAvatars({super.key, required this.admins});
 
   @override
   Widget build(BuildContext context) {
@@ -10,18 +12,16 @@ class UserCircularAvatars extends StatelessWidget {
       height: 30,
       width: 70,
       child: Stack(
-          children: List.generate(
-              imageLinks.length, (index) {
-            return Positioned(
-                left: index * 15,
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(imageLinks[index]),
-                  radius: 15,
-                )
-            );
-          }
-          )
-      ),
+          children: List.generate(admins.length, (index) {
+        return Positioned(
+            left: index * 15,
+            child: CircleAvatar(
+              backgroundImage: admins[index].url == null
+                  ? const NetworkImage('')
+                  : NetworkImage(admins[index].url!),
+              radius: 15,
+            ));
+      })),
     );
   }
 }

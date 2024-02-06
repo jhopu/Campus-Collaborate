@@ -11,23 +11,33 @@ PreferredSize customAppBar(String title, Function onBackTap) {
         child: Row(
           children: [
             GestureDetector(
-              child: Image.asset('assets/back_arrow.png',),
+              child: Image.asset(
+                'assets/back_arrow.png',
+              ),
               onTap: () {
                 onBackTap();
               },
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Text(
               title,
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 20),
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20),
             ),
           ],
         ),
       ),
       actions: [
         GestureDetector(
-          child: Icon(Icons.more_vert, color: Themes.getColors(ColorsValues.ORANGE_COLOR), size: 30,)
-        )
+            child: Icon(
+          Icons.more_vert,
+          color: Themes.getColors(ColorsValues.ORANGE_COLOR),
+          size: 30,
+        ))
       ],
       leadingWidth: double.infinity,
       elevation: 0,

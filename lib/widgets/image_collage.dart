@@ -3,15 +3,14 @@ import 'package:image_collage/image_collage.dart';
 
 import '../constants/themes.dart';
 
-
 class CustomImageCollage extends StatelessWidget {
   final List<String> imagesLink;
   const CustomImageCollage({super.key, required this.imagesLink});
 
   @override
   Widget build(BuildContext context) {
-    List<Img> images=[];
-    for(int i=0; i<imagesLink.length; i++){
+    List<Img> images = [];
+    for (int i = 0; i < imagesLink.length; i++) {
       images.add(Img(image: imagesLink[i]));
     }
     return Container(
@@ -21,9 +20,7 @@ class CustomImageCollage extends StatelessWidget {
         color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
-      child: ImageCollage(
-          images: images
-      ),
+      child: ImageCollage(images: images),
     );
   }
 }
