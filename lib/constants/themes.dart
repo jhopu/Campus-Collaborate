@@ -47,6 +47,8 @@ class Themes {
       const Color.fromRGBO(125, 125, 125, 1),
       const Color.fromRGBO(85, 85, 85, 1),
       const Color.fromRGBO(224, 140, 56, 1),
+      const Color.fromRGBO(170, 170, 170, 1),
+      const Color.fromRGBO(35, 33, 38, 1)
 
     ];
     return colorsList[value.index];
@@ -56,5 +58,7 @@ class Themes {
 enum ColorsValues {
   DARK_GREY_COLOR,
   LIGHT_GREY_COLOR,
-  ORANGE_COLOR
+  ORANGE_COLOR,
+  LIGHT_TEXT_COLOR,
+  BACKGROUND_COLOR
 }

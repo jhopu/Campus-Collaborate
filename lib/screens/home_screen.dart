@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

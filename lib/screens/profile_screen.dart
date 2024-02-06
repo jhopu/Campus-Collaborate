@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
             child: Column(
               children: [
                 Row(

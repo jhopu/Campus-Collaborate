@@ -23,8 +23,8 @@ class CommonTextField extends StatelessWidget {
           contentPadding: const EdgeInsets.all(10),
           hintText: hintText,
             border: InputBorder.none,
-          hintStyle: const TextStyle(
-            color: Colors.white,
+          hintStyle:  TextStyle(
+            color: Themes.getColors(ColorsValues.LIGHT_TEXT_COLOR),
             fontSize: 13,
             fontWeight: FontWeight.w400
           ),

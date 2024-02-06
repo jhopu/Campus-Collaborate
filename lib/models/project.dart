@@ -1,4 +1,6 @@
 
+import 'package:campus_collaborate/models/admin.dart';
+
 class Project {
   final String projectName;
   final String description;
@@ -7,9 +9,9 @@ class Project {
   final String duration;
   final bool isActive;
   final String id;
-  final List<String>? admin;
+  final List<Admin>? admin;
   final List<String>? starBy;
-  final String owner;
+  final Admin owner;
 
   Project(
       {required this.projectName,
@@ -33,10 +35,10 @@ class Project {
     isActive: json['isActive'] as bool,
     id: json['_id'] as String,
     admin:
-    (json['admin'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    (json['admin'] as List<dynamic>?)?.map((e) => Admin.fromJson(e as Map<String, dynamic>)).toList(),
     starBy:
     (json['starBy'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    owner: json['owner'] as String,
+    owner: Admin.fromJson(json['owner']),
   );
 
   Map<String, dynamic> toJson(Project instance) => <String, dynamic>{

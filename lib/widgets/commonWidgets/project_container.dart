@@ -66,7 +66,7 @@ class ProjectContainerWithoutImage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(project.duration, style: const TextStyle(fontSize: 10, color: Colors.white, fontWeight: FontWeight.w400),),
-              project.admin==null?ContributorContainer(contributor: project.owner, fontSize: 10,):UserCircularAvatars(imageLinks: project.admin!)
+              project.admin==null?ContributorContainer(contributor: project.owner, fontSize: 10,):UserCircularAvatars(admins: project.admin!)
             ],
           ),
           const SizedBox(height: 8,),

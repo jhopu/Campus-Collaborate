@@ -17,9 +17,8 @@ class ProjectScreen extends StatelessWidget {
     return SafeArea(child: Scaffold(
       floatingActionButton: CustomFloatingActionButton(onPressed: (){}, icon: Image.asset('assets/star.png'),),
       appBar: customAppBar(project.projectName, (){}),
-      bottomNavigationBar: const BottomNavBar(),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 30),
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
