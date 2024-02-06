@@ -7,6 +7,7 @@ import 'package:campus_collaborate/services/toggle_button_services.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:campus_collaborate/routes.dart' as router;
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'locator.dart';
@@ -17,6 +18,8 @@ void main() async {
       //options: DefaultFirebaseOptions.currentPlatform,
       );
   setUpLocator();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => NavBarService()),
