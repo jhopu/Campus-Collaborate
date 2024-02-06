@@ -11,6 +11,7 @@ class ContributorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 150,
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -22,13 +23,14 @@ class ContributorContainer extends StatelessWidget {
             backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
             radius: 12,
             child: contributor.url == null
-                ? Image.asset('')
+                ? Image.asset('assets/circular_user.png')
                 : Image.network(
                     contributor.url!,
                     height: 20,
                     width: 20,
                   ),
           ),
+          const SizedBox(width: 5,),
           Expanded(
             child: Text(
               contributor.name,

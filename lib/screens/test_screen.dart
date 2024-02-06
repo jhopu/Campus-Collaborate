@@ -8,7 +8,7 @@ class TestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: customAppBar('Hello', () {}),
+      appBar: customAppBar('Hello'),
     ));
   }
 }

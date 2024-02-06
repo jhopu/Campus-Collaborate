@@ -1,3 +1,4 @@
+import 'package:campus_collaborate/locator.dart';
 import 'package:campus_collaborate/services/docs_and_images.dart';
 import 'package:campus_collaborate/services/toggle_button_services.dart';
 import 'package:campus_collaborate/widgets/commonWidgets/app_bar.dart';
@@ -28,7 +29,7 @@ class _CreateProjectScreenState extends State<CreateProjectScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: customAppBar('New Project', () {}),
+      appBar: customAppBar('New Project'),
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: Form(

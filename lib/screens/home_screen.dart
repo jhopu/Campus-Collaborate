@@ -1,5 +1,8 @@
+import 'package:campus_collaborate/constants/routing_constants.dart';
 import 'package:campus_collaborate/constants/themes.dart';
+import 'package:campus_collaborate/locator.dart';
 import 'package:campus_collaborate/models/user_info.dart';
+import 'package:campus_collaborate/services/reset_providers.dart';
 import 'package:campus_collaborate/widgets/commonWidgets/common_text_field.dart';
 import 'package:campus_collaborate/widgets/commonWidgets/project_container.dart';
 import 'package:flutter/material.dart';
@@ -10,16 +13,27 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _searchTextController = TextEditingController();
+    final TextEditingController searchTextController = TextEditingController();
     return SafeArea(
         child: Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: AppBar(
-          backgroundColor: Themes.getColors(ColorsValues.DARK_GREY_COLOR),
-          title: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: FloatingActionButton(onPressed: (){
+              ResetProviders.reset(context);
+              navigationService.pushScreen(Routes.createProjectScreen);
+            },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30)
+              ),
+              child: const Icon(Icons.add, color: Colors.white,),
+            ),
+          ),
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(70),
+            child: AppBar(
+              backgroundColor: Themes.getColors(ColorsValues.DARK_GREY_COLOR),
+              title: Padding(
+              padding: const EdgeInsets.only(top: 10), child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Text(
@@ -41,15 +55,17 @@ class HomeScreen extends StatelessWidget {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 15, top: 5),
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    child: Icon(
-                      Icons.supervised_user_circle,
-                      size: 55,
-                      color: Themes.getColors(ColorsValues.ORANGE_COLOR),
+                    onTap:(){
+                      navigationService.pushScreen(Routes.profileScreen, arguments: userInfo);
+                    },
+                    child: const CircleAvatar(radius: 45,
+                      backgroundImage: AssetImage('assets/circular_user.png'),
+                      foregroundImage: AssetImage('assets/circular_user.png'),
                     ),
                   )
                 ],
@@ -78,7 +94,7 @@ class HomeScreen extends StatelessWidget {
               height: 20,
             ),
             CommonTextField(
-              textEditingController: _searchTextController,
+              textEditingController: searchTextController,
               hintText: "Search Project",
               suffix: Image.asset('assets/funnel.png'),
             ),
@@ -93,8 +109,13 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: userInfo.projects!.length,
-                        itemBuilder: (context, index) => ProjectContainer(
-                            project: userInfo.projects![index])),
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: (){
+                            navigationService.pushScreen(Routes.projectScreen, arguments:userInfo.projects![index]);
+                          },
+                          child: ProjectContainer(
+                              project: userInfo.projects![index]),
+                        )),
                   )
           ],
         ),

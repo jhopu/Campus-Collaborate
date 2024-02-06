@@ -14,5 +14,10 @@ class DropDownServices extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetProvider(){
+    _selectedValue = durationItems[2];
+    notifyListeners();
+  }
+
   String get selectedValue => _selectedValue;
 }

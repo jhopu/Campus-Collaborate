@@ -24,7 +24,7 @@ class _OtherUserProfileScreenState extends State<OtherUserProfileScreen> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        appBar: customAppBar('Profile', () {}),
+        appBar: customAppBar('Profile'),
         bottomNavigationBar: const BottomNavBar(),
         body: SingleChildScrollView(
           child: Padding(

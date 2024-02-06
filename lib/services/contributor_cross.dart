@@ -14,6 +14,9 @@ class ContributorCrossService extends ChangeNotifier {
     _contributors.remove(admin);
     notifyListeners();
   }
-
+  void resetProvider(){
+    _contributors.clear();
+    notifyListeners();
+  }
   List<Admin> get contributors => _contributors;
 }

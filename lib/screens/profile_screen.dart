@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        appBar: customAppBar('Profile', () {}),
+        appBar: customAppBar('Profile'),
         body: SingleChildScrollView(
           child: Padding(
             padding:

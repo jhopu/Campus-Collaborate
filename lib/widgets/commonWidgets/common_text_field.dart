@@ -6,19 +6,25 @@ class CommonTextField extends StatelessWidget {
   final TextEditingController textEditingController;
   final String hintText;
   final Widget? suffix;
+  final Color? backgroundColor;
+  final double? width;
+  final double? height;
   const CommonTextField(
       {super.key,
       required this.textEditingController,
       required this.hintText,
+        this.backgroundColor,
+        this.width,
+        this.height,
       this.suffix});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: 45,
+      width: width??double.infinity,
+      height: height??45,
       decoration: BoxDecoration(
-        color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
+        color: backgroundColor ?? Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
         borderRadius: const BorderRadius.all(Radius.circular(25)),
       ),
       child: TextField(

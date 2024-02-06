@@ -45,9 +45,9 @@ class Themes {
       const Color.fromRGBO(125, 125, 125, 1),
       const Color.fromRGBO(85, 85, 85, 1),
       const Color.fromRGBO(224, 140, 56, 1),
-
       const Color.fromRGBO(170, 170, 170, 1),
-      const Color.fromRGBO(35, 33, 38, 1)
+      const Color.fromRGBO(35, 33, 38, 1),
+      const Color.fromRGBO(102, 102, 102, 1)
 
     ];
     return colorsList[value.index];
@@ -60,5 +60,6 @@ enum ColorsValues {
   LIGHT_GREY_COLOR,
   ORANGE_COLOR,
   LIGHT_TEXT_COLOR,
-  BACKGROUND_COLOR
+  BACKGROUND_COLOR,
+  SEARCH_BAR_COLOR
 }

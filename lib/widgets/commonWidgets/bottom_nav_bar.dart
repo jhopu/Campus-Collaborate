@@ -1,5 +1,9 @@
+import 'package:campus_collaborate/chats/screens/dm_chat_screen.dart';
 import 'package:campus_collaborate/constants/themes.dart';
+import 'package:campus_collaborate/models/user_info.dart';
+import 'package:campus_collaborate/sample_data.dart';
 import 'package:campus_collaborate/screens/home_screen.dart';
+import 'package:campus_collaborate/screens/new_course_review_screen.dart';
 import 'package:campus_collaborate/screens/test_screen.dart';
 import 'package:campus_collaborate/services/nav_bar_services.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +55,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               inactiveColorPrimary: Colors.black)
         ],
         controller: controller,
-        screens: const [TestScreen(), TestScreen(), TestScreen(), TestScreen()],
+        screens: [HomeScreen(userInfo: UserInfo.fromJson(sampleUser)),  const CourseReview(), const TestScreen(), const DmChatScreen()],
       );
     });
   }

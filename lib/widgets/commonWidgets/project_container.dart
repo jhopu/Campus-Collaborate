@@ -13,35 +13,33 @@ class ProjectContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return project.urls == null || project.urls!.isEmpty
-        ? Expanded(child: ProjectContainerWithoutImage(project: project))
-        : Expanded(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
-                borderRadius: const BorderRadius.all(Radius.circular(25)),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(25)),
-                      ),
-                      child: Image.network(
-                        project.urls![0],
-                        height: 100,
-                        width: double.infinity,
-                      )),
-                  ProjectContainerWithoutImage(project: project)
-                ],
-              ),
-            ),
-          );
+        ? ProjectContainerWithoutImage(project: project)
+        : Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
+            borderRadius: const BorderRadius.all(Radius.circular(25)),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(25)),
+                  ),
+                  child: Image.network(
+                    project.urls![0],
+                    height: 100,
+                    width: double.infinity,
+                  )),
+              ProjectContainerWithoutImage(project: project)
+            ],
+          ),
+        );
   }
 }
 
@@ -70,7 +68,7 @@ class ProjectContainerWithoutImage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 13,
                     color: Colors.white,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w700),
               ),
               Text(
                 project.admin == null ? 'Individual Project' : 'Group Project',
