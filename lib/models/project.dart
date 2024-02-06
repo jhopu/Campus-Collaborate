@@ -34,14 +34,7 @@ class Project {
         isActive: json['isActive'] as bool,
         id: json['_id'] as String,
         admin:
-            (json['admin'] as List<dynamic>?)?.map((e) => e as String).toList(),
-        starBy: (json['starBy'] as List<dynamic>?)
-            ?.map((e) => e as String)
-            .toList(),
-        owner: json['owner'] as String,
-        admin: (json['admin'] as List<dynamic>?)
-            ?.map((e) => Admin.fromJson(e as Map<String, dynamic>))
-            .toList(),
+            (json['admin'] as List<dynamic>?)?.map((e) => Admin.fromJson(e as Map<String, dynamic>)).toList(),
         starBy: (json['starBy'] as List<dynamic>?)
             ?.map((e) => e as String)
             .toList(),
