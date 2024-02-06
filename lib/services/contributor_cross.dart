@@ -1,0 +1,19 @@
+import 'package:flutter/material.dart';
+
+import '../models/admin.dart';
+
+class ContributorCrossService extends ChangeNotifier {
+  final List<Admin> _contributors = [];
+
+  void addAdminToList(Admin admin) {
+    _contributors.add(admin);
+    notifyListeners();
+  }
+
+  void removeAdminFromList(Admin admin) {
+    _contributors.remove(admin);
+    notifyListeners();
+  }
+
+  List<Admin> get contributors => _contributors;
+}

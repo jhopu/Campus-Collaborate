@@ -96,7 +96,7 @@ class ProjectContainerWithoutImage extends StatelessWidget {
                       contributor: project.owner,
                       fontSize: 10,
                     )
-                  : UserCircularAvatars(imageLinks: project.admin!)
+                  : UserCircularAvatars(admins: project.admin!)
             ],
           ),
           const SizedBox(

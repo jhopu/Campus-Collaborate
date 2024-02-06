@@ -1,5 +1,6 @@
 import 'package:campus_collaborate/models/project.dart';
 import 'package:campus_collaborate/sample_data.dart';
+import 'package:campus_collaborate/screens/create_project_screen.dart';
 import 'package:campus_collaborate/screens/home_screen.dart';
 import 'package:campus_collaborate/screens/profile_screen.dart';
 import 'package:campus_collaborate/screens/project_screen.dart';
@@ -17,5 +18,6 @@ class SplashScreen extends StatelessWidget {
         child: ProjectScreen(
       project: Project.fromJson(sampleProject),
     ));
+    return const SafeArea(child: CreateProjectScreen());
   }
 }

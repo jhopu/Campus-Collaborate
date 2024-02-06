@@ -1,8 +1,9 @@
 import 'package:campus_collaborate/constants/themes.dart';
+import 'package:campus_collaborate/models/admin.dart';
 import 'package:flutter/material.dart';
 
 class ContributorContainer extends StatelessWidget {
-  final String contributor;
+  final Admin contributor;
   final double? fontSize;
   const ContributorContainer(
       {super.key, required this.contributor, this.fontSize});
@@ -20,15 +21,17 @@ class ContributorContainer extends StatelessWidget {
           CircleAvatar(
             backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
             radius: 12,
-            child: Image.network(
-              contributor,
-              height: 20,
-              width: 20,
-            ),
+            child: contributor.url == null
+                ? Image.asset('')
+                : Image.network(
+                    contributor.url!,
+                    height: 20,
+                    width: 20,
+                  ),
           ),
           Expanded(
             child: Text(
-              contributor,
+              contributor.name,
               style: TextStyle(
                   fontSize: fontSize ?? 13,
                   color: Colors.black,
@@ -43,7 +46,7 @@ class ContributorContainer extends StatelessWidget {
 }
 
 class ContributorListView extends StatelessWidget {
-  final List<String> contributorsList;
+  final List<Admin> contributorsList;
   const ContributorListView({super.key, required this.contributorsList});
 
   @override
