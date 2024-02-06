@@ -20,7 +20,7 @@ class _OtherUserProfileScreenState extends State<OtherUserProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final RollNumberDecoder rollNumberDecoder =
-    RollNumberDecoder(rollNumber: int.parse(widget.userInfo.rollNumber));
+        RollNumberDecoder(rollNumber: int.parse(widget.userInfo.rollNumber));
     return SafeArea(
       child: Scaffold(
         extendBody: true,
@@ -29,7 +29,7 @@ class _OtherUserProfileScreenState extends State<OtherUserProfileScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding:
-            const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
+                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
             child: Column(
               children: [
                 Row(
@@ -116,23 +116,27 @@ class _OtherUserProfileScreenState extends State<OtherUserProfileScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                CommonGesturizedButton(onPressed: (){},
-                    buttonText: const Text('Projects',
+                CommonGesturizedButton(
+                    onPressed: () {},
+                    buttonText: const Text(
+                      'Projects',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),)),
+                          color: Colors.white),
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
-                CommonGesturizedButton(onPressed: (){},
-                    buttonText: const Text('Course Reviews',
+                CommonGesturizedButton(
+                    onPressed: () {},
+                    buttonText: const Text(
+                      'Course Reviews',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),)),
+                          color: Colors.white),
+                    )),
                 const SizedBox(
                   height: 20,
                 ),

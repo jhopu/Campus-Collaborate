@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-class NavBarService extends ChangeNotifier{
-  int _selectedIndex=0;
+class NavBarService extends ChangeNotifier {
+  int _selectedIndex = 0;
 
-  void changeScreen(int index){
-    _selectedIndex=index;
+  void changeScreen(int index) {
+    _selectedIndex = index;
     notifyListeners();
   }
 
-  int get selectedIndex =>_selectedIndex;
-
+  int get selectedIndex => _selectedIndex;
 }

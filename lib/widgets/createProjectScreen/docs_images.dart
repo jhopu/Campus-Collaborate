@@ -4,7 +4,11 @@ class DocsImagesWithCross extends StatelessWidget {
   final String docsName;
   final double? fontSize;
   final void Function() onCrossTap;
-  const DocsImagesWithCross({super.key, required this.docsName, this.fontSize, required this.onCrossTap});
+  const DocsImagesWithCross(
+      {super.key,
+      required this.docsName,
+      this.fontSize,
+      required this.onCrossTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,28 +23,33 @@ class DocsImagesWithCross extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset('assets/docs.png', height: 25, width: 25,),
+              Image.asset(
+                'assets/docs.png',
+                height: 25,
+                width: 25,
+              ),
               Expanded(
                 child: Text(
                   docsName,
                   style: TextStyle(
-                      fontSize: fontSize ?? 13, color: Colors.black, fontWeight: FontWeight.w400),
+                      fontSize: fontSize ?? 13,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 5),
                 child: GestureDetector(
-                    onTap: onCrossTap,
-                    child: Image.asset('assets/cross.png')
-                ),
+                    onTap: onCrossTap, child: Image.asset('assets/cross.png')),
               )
             ],
           ),
         ),
-        const SizedBox(height: 10,)
+        const SizedBox(
+          height: 10,
+        )
       ],
     );
   }
 }
-

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../models/admin.dart';
 
-class ContributorCrossService extends ChangeNotifier{
-  final List<Admin> _contributors=[];
+class ContributorCrossService extends ChangeNotifier {
+  final List<Admin> _contributors = [];
 
-  void addAdminToList(Admin admin){
+  void addAdminToList(Admin admin) {
     _contributors.add(admin);
     notifyListeners();
   }
 
-  void removeAdminFromList(Admin admin){
+  void removeAdminFromList(Admin admin) {
     _contributors.remove(admin);
     notifyListeners();
   }
 
-  List<Admin> get contributors=>_contributors;
+  List<Admin> get contributors => _contributors;
 }

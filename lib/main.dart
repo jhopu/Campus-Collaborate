@@ -1,4 +1,3 @@
-
 import 'package:campus_collaborate/constants/themes.dart';
 import 'package:campus_collaborate/services/contributor_cross.dart';
 import 'package:campus_collaborate/services/docs_and_images.dart';
@@ -18,18 +17,18 @@ void main() async {
       //options: DefaultFirebaseOptions.currentPlatform,
       );
   setUpLocator();
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_)=>NavBarService()),
-    ChangeNotifierProvider(create: (_)=>DropDownServices()),
-    ChangeNotifierProvider(create: (_)=>ProjectStatusToggleButtonService()),
-    ChangeNotifierProvider(create: (_)=>ProjectTypeToggleButtonService()),
-    ChangeNotifierProvider(create: (_)=>ContributorCrossService()),
-    ChangeNotifierProvider(create: (_)=>DocsStateService()),
-    ChangeNotifierProvider(create: (_)=>ProjectImageStateService())
-  ],
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => NavBarService()),
+      ChangeNotifierProvider(create: (_) => DropDownServices()),
+      ChangeNotifierProvider(create: (_) => ProjectStatusToggleButtonService()),
+      ChangeNotifierProvider(create: (_) => ProjectTypeToggleButtonService()),
+      ChangeNotifierProvider(create: (_) => ContributorCrossService()),
+      ChangeNotifierProvider(create: (_) => DocsStateService()),
+      ChangeNotifierProvider(create: (_) => ProjectImageStateService())
+    ],
     child: const MyApp(),
-  )
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {

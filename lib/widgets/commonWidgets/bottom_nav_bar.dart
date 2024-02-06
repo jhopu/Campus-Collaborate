@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
 
-
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
@@ -17,48 +16,43 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    PersistentTabController controller = PersistentTabController(initialIndex: 0);
-    return Consumer<NavBarService>(
-      builder: (context, navBarService, child){
-        return PersistentTabView(
-          context,
-          backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
-          decoration: NavBarDecoration(
-              borderRadius: BorderRadius.circular(15.0)
-          ),
-          navBarHeight: 65,
-          navBarStyle: NavBarStyle.style7,
-          items: [
-            PersistentBottomNavBarItem(icon: Image.asset('assets/home.png', width: 32,),
-                activeColorPrimary: Colors.black,
+    PersistentTabController controller =
+        PersistentTabController(initialIndex: 0);
+    return Consumer<NavBarService>(builder: (context, navBarService, child) {
+      return PersistentTabView(
+        context,
+        backgroundColor: Themes.getColors(ColorsValues.LIGHT_GREY_COLOR),
+        decoration: NavBarDecoration(borderRadius: BorderRadius.circular(15.0)),
+        navBarHeight: 65,
+        navBarStyle: NavBarStyle.style7,
+        items: [
+          PersistentBottomNavBarItem(
+              icon: Image.asset(
+                'assets/home.png',
+                width: 32,
+              ),
+              activeColorPrimary: Colors.black,
               activeColorSecondary: Colors.black,
-              inactiveColorPrimary: Colors.black
-            ),
-            PersistentBottomNavBarItem(icon: Image.asset('assets/course_review.png', width: 32),
-                activeColorPrimary: Colors.black,
-                activeColorSecondary: Colors.black,
-                inactiveColorPrimary: Colors.black
-            ),
-            PersistentBottomNavBarItem(icon: Image.asset('assets/hand_shake.png', width: 32),
-                activeColorPrimary: Colors.black,
-                activeColorSecondary: Colors.black,
-                inactiveColorPrimary: Colors.black
-            ),
-            PersistentBottomNavBarItem(icon: Image.asset('assets/chat.png', width: 32),
-                activeColorPrimary: Colors.black,
-                activeColorSecondary: Colors.black,
-                inactiveColorPrimary: Colors.black
-            )
-          ],
-          controller: controller,
-          screens: const[
-            TestScreen(),
-            TestScreen(),
-            TestScreen(),
-            TestScreen()
-          ],
-        );
-      }
-    );
+              inactiveColorPrimary: Colors.black),
+          PersistentBottomNavBarItem(
+              icon: Image.asset('assets/course_review.png', width: 32),
+              activeColorPrimary: Colors.black,
+              activeColorSecondary: Colors.black,
+              inactiveColorPrimary: Colors.black),
+          PersistentBottomNavBarItem(
+              icon: Image.asset('assets/hand_shake.png', width: 32),
+              activeColorPrimary: Colors.black,
+              activeColorSecondary: Colors.black,
+              inactiveColorPrimary: Colors.black),
+          PersistentBottomNavBarItem(
+              icon: Image.asset('assets/chat.png', width: 32),
+              activeColorPrimary: Colors.black,
+              activeColorSecondary: Colors.black,
+              inactiveColorPrimary: Colors.black)
+        ],
+        controller: controller,
+        screens: const [TestScreen(), TestScreen(), TestScreen(), TestScreen()],
+      );
+    });
   }
 }

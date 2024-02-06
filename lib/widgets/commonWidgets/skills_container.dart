@@ -19,7 +19,9 @@ class SkillContainer extends StatelessWidget {
       child: Text(
         skill is int ? SkillsEnum.values[skill].name : skill.toString(),
         style: TextStyle(
-            fontSize: fontSize ?? 13, color: Colors.black, fontWeight: FontWeight.w400),
+            fontSize: fontSize ?? 13,
+            color: Colors.black,
+            fontWeight: FontWeight.w400),
       ),
     );
   }

@@ -22,7 +22,11 @@ class CommonGesturizedButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             buttonText,
-            const Icon(Icons.arrow_forward, color: Colors.white, size: 30,)
+            const Icon(
+              Icons.arrow_forward,
+              color: Colors.white,
+              size: 30,
+            )
           ],
         ),
       ),

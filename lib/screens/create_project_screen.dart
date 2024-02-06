@@ -19,15 +19,16 @@ class CreateProjectScreen extends StatefulWidget {
 }
 
 class _CreateProjectScreenState extends State<CreateProjectScreen> {
-  final TextEditingController projectTitleController= TextEditingController();
-  final TextEditingController domainController= TextEditingController();
-  final TextEditingController descriptionController= TextEditingController();
-  final TextEditingController durationController= TextEditingController();
-  final formKey= GlobalKey<FormState>();
+  final TextEditingController projectTitleController = TextEditingController();
+  final TextEditingController domainController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController durationController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: customAppBar('New Project', (){}),
+    return SafeArea(
+        child: Scaffold(
+      appBar: customAppBar('New Project', () {}),
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: Form(
@@ -37,71 +38,148 @@ class _CreateProjectScreenState extends State<CreateProjectScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FormTextFieldContainer(hintText: 'Project Name', title: 'Project Title', textEditingController: projectTitleController,),
-                FormTextFieldContainer(hintText: 'HTML, CSS, Javascript etc.', title: 'Domain', textEditingController: domainController),
-                FormTextFieldContainer(hintText: 'Few words describing your project.', title: 'Description', textEditingController: descriptionController, maxLines: 8,),
+                FormTextFieldContainer(
+                  hintText: 'Project Name',
+                  title: 'Project Title',
+                  textEditingController: projectTitleController,
+                ),
+                FormTextFieldContainer(
+                    hintText: 'HTML, CSS, Javascript etc.',
+                    title: 'Domain',
+                    textEditingController: domainController),
+                FormTextFieldContainer(
+                  hintText: 'Few words describing your project.',
+                  title: 'Description',
+                  textEditingController: descriptionController,
+                  maxLines: 8,
+                ),
                 CustomDropDownButton(textEditingController: durationController),
-                const SizedBox(height: 10,),
-                const Text('Project Status', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                const SizedBox(height: 5,),
-                Consumer<ProjectStatusToggleButtonService>(builder: (context, service, child)=>
-                  CustomToggleButton(onChange: (index){
-                  service.selectButton(index!);
-                }, isSelected: service.selectedList, firstToggleText: 'Active', secondToggleText: 'Inactive')
+                const SizedBox(
+                  height: 10,
                 ),
-                const SizedBox(height: 10,),
-                const Text('Project Type', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                const SizedBox(height: 5,),
-                Consumer<ProjectTypeToggleButtonService>(builder: (context, service, child)=>
-                    CustomToggleButton(onChange: (index){
-                      service.selectButton(index!);
-                    }, isSelected: service.selectedList, firstToggleText: 'Individual', secondToggleText: 'Group')
+                const Text(
+                  'Project Status',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 10,),
-                const Text('Contributors', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 5,
+                ),
+                Consumer<ProjectStatusToggleButtonService>(
+                    builder: (context, service, child) => CustomToggleButton(
+                        onChange: (index) {
+                          service.selectButton(index!);
+                        },
+                        isSelected: service.selectedList,
+                        firstToggleText: 'Active',
+                        secondToggleText: 'Inactive')),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Project Type',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Consumer<ProjectTypeToggleButtonService>(
+                    builder: (context, service, child) => CustomToggleButton(
+                        onChange: (index) {
+                          service.selectButton(index!);
+                        },
+                        isSelected: service.selectedList,
+                        firstToggleText: 'Individual',
+                        secondToggleText: 'Group')),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Contributors',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 const ContributorsWithCrossListView(),
-                AddElevatedButton(buttonText: 'Add Contributor', onTap: (){}, prefixImage: Image.asset('assets/button_plus.png'),),
-                const SizedBox(height: 10,),
-                const Text('Uploads', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                const SizedBox(height: 10,),
-                Consumer<DocsStateService>(builder: (context, service, child){
-                  if(service.docs.isEmpty){
-                    return const SizedBox(height: 0,);
+                AddElevatedButton(
+                  buttonText: 'Add Contributor',
+                  onTap: () {},
+                  prefixImage: Image.asset('assets/button_plus.png'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Uploads',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Consumer<DocsStateService>(builder: (context, service, child) {
+                  if (service.docs.isEmpty) {
+                    return const SizedBox(
+                      height: 0,
+                    );
                   }
                   return Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: service.docs.map((docs) {
-                        return DocsImagesWithCross(docsName: docs, onCrossTap: (){
-                          service.removeDocs(docs);
-                        },);
+                        return DocsImagesWithCross(
+                          docsName: docs,
+                          onCrossTap: () {
+                            service.removeDocs(docs);
+                          },
+                        );
                       }).toList());
                 }),
-                AddElevatedButton(buttonText: 'Upload File', onTap: (){}, prefixImage: Image.asset('assets/upload.png'),),
-                const SizedBox(height: 10,),
-                const Text('Thumbnail', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                const SizedBox(height: 10,),
-                Consumer<ProjectImageStateService>(builder: (context, service, child){
-                  if(service.images.isEmpty){
-                    return const SizedBox(height: 0,);
+                AddElevatedButton(
+                  buttonText: 'Upload File',
+                  onTap: () {},
+                  prefixImage: Image.asset('assets/upload.png'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Thumbnail',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Consumer<ProjectImageStateService>(
+                    builder: (context, service, child) {
+                  if (service.images.isEmpty) {
+                    return const SizedBox(
+                      height: 0,
+                    );
                   }
                   return Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: service.images.map((docs) {
-                        return DocsImagesWithCross(docsName: docs, onCrossTap: (){
-                          service.removeDocs(docs);
-                        },);
+                        return DocsImagesWithCross(
+                          docsName: docs,
+                          onCrossTap: () {
+                            service.removeDocs(docs);
+                          },
+                        );
                       }).toList());
                 }),
-                AddElevatedButton(buttonText: 'Upload New', onTap: (){}, prefixImage: Image.asset('assets/upload.png'),),
-                const SizedBox(height: 10,),
+                AddElevatedButton(
+                  buttonText: 'Upload New',
+                  onTap: () {},
+                  prefixImage: Image.asset('assets/upload.png'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           ),
         ),
-
       ),
     ));
   }

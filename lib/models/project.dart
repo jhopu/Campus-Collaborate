@@ -1,4 +1,3 @@
-
 import 'package:campus_collaborate/models/admin.dart';
 
 class Project {
@@ -23,34 +22,35 @@ class Project {
       required this.id,
       required this.admin,
       required this.starBy,
-      required this.owner
-      });
+      required this.owner});
   factory Project.fromJson(Map<String, dynamic> json) => Project(
-    projectName: json['projectName'] as String,
-    description: json['description'] as String,
-    skills:
-    json['skills'] as List<dynamic>,
-    urls: (json['urls'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    duration: json['duration'] as String,
-    isActive: json['isActive'] as bool,
-    id: json['_id'] as String,
-    admin:
-    (json['admin'] as List<dynamic>?)?.map((e) => Admin.fromJson(e as Map<String, dynamic>)).toList(),
-    starBy:
-    (json['starBy'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    owner: Admin.fromJson(json['owner']),
-  );
+        projectName: json['projectName'] as String,
+        description: json['description'] as String,
+        skills: json['skills'] as List<dynamic>,
+        urls:
+            (json['urls'] as List<dynamic>?)?.map((e) => e as String).toList(),
+        duration: json['duration'] as String,
+        isActive: json['isActive'] as bool,
+        id: json['_id'] as String,
+        admin: (json['admin'] as List<dynamic>?)
+            ?.map((e) => Admin.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        starBy: (json['starBy'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList(),
+        owner: Admin.fromJson(json['owner']),
+      );
 
   Map<String, dynamic> toJson(Project instance) => <String, dynamic>{
-    'projectName': instance.projectName,
-    'description': instance.description,
-    'skills': instance.skills,
-    'urls': instance.urls,
-    'duration': instance.duration,
-    'isActive': instance.isActive,
-    '_id': instance.id,
-    'admin': instance.admin,
-    'starBy': instance.starBy,
-    'owner': instance.owner,
-  };
+        'projectName': instance.projectName,
+        'description': instance.description,
+        'skills': instance.skills,
+        'urls': instance.urls,
+        'duration': instance.duration,
+        'isActive': instance.isActive,
+        '_id': instance.id,
+        'admin': instance.admin,
+        'starBy': instance.starBy,
+        'owner': instance.owner,
+      };
 }
