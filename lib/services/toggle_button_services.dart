@@ -14,6 +14,11 @@ class ProjectStatusToggleButtonService extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetProvider(){
+    _selectedList[0]=true;
+    _selectedList[1]=false;
+    notifyListeners();
+  }
   List<bool> get selectedList => _selectedList;
 }
 
@@ -28,6 +33,12 @@ class ProjectTypeToggleButtonService extends ChangeNotifier {
       _selectedList[1] = true;
       _selectedList[0] = false;
     }
+    notifyListeners();
+  }
+
+  void resetProvider(){
+    _selectedList[1]=true;
+    _selectedList[0]=false;
     notifyListeners();
   }
 

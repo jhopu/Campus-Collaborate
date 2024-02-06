@@ -8,5 +8,10 @@ class NavBarService extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetProvider(){
+    _selectedIndex=0;
+    notifyListeners();
+  }
+
   int get selectedIndex => _selectedIndex;
 }

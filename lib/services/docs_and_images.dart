@@ -13,6 +13,11 @@ class DocsStateService extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetProvider(){
+    _docs.clear();
+    notifyListeners();
+  }
+
   List<String> get docs => _docs;
 }
 
@@ -26,6 +31,11 @@ class ProjectImageStateService extends ChangeNotifier {
 
   void removeDocs(String docs) {
     _images.remove(docs);
+    notifyListeners();
+  }
+
+  void resetProvider(){
+    _images.clear();
     notifyListeners();
   }
 

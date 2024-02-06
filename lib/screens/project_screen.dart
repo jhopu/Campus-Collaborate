@@ -20,7 +20,7 @@ class ProjectScreen extends StatelessWidget {
         onPressed: () {},
         icon: Image.asset('assets/star.png'),
       ),
-      appBar: customAppBar(project.projectName, () {}),
+      appBar: customAppBar(project.projectName),
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 0),
         child: SingleChildScrollView(

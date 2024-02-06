@@ -1,7 +1,8 @@
 import 'package:campus_collaborate/constants/themes.dart';
+import 'package:campus_collaborate/locator.dart';
 import 'package:flutter/material.dart';
 
-PreferredSize customAppBar(String title, Function onBackTap) {
+PreferredSize customAppBar(String title, {bool vertRequired=true}) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(50),
     child: AppBar(
@@ -15,7 +16,7 @@ PreferredSize customAppBar(String title, Function onBackTap) {
                 'assets/back_arrow.png',
               ),
               onTap: () {
-                onBackTap();
+                navigationService.pop();
               },
             ),
             const SizedBox(
@@ -32,12 +33,12 @@ PreferredSize customAppBar(String title, Function onBackTap) {
         ),
       ),
       actions: [
-        GestureDetector(
+        vertRequired==true?GestureDetector(
             child: Icon(
-          Icons.more_vert,
-          color: Themes.getColors(ColorsValues.ORANGE_COLOR),
-          size: 30,
-        ))
+              Icons.more_vert,
+              color: Themes.getColors(ColorsValues.ORANGE_COLOR),
+              size: 30,
+            )):const SizedBox(width: 0,)
       ],
       leadingWidth: double.infinity,
       elevation: 0,
