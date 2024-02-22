@@ -44,7 +44,7 @@ class ContributorWithCross extends StatelessWidget {
                 child: Text(
                   contributor.name,
                   style: TextStyle(
-                      fontSize: fontSize ?? 13,
+                      fontSize: fontSize ?? 15-2,
                       color: Colors.black,
                       fontWeight: FontWeight.w400),
                   overflow: TextOverflow.ellipsis,
@@ -62,7 +62,6 @@ class ContributorWithCross extends StatelessWidget {
     );
   }
 }
-
 class ContributorsWithCrossListView extends StatelessWidget {
   const ContributorsWithCrossListView({super.key});
 
